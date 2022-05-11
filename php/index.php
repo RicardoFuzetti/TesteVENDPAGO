@@ -120,7 +120,7 @@
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $nome = $row["nome"];
                                 $cpf = $row["cpf"];
-                                echo "<option value='$cpf'>" . $nome . "</option>";
+                                echo "<option value=" . $cpf . ">" . $nome . "</option>";
                             }
                             echo "</select required>";
                         }
@@ -131,11 +131,11 @@
                         if ($total === 0) {
                             echo '<h3>Não há nenhum cliente cadastrado</h3>';
                         } else {
-                            echo "<select name='cliente'>";
+                            echo "<select name='filme'>";
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $titulo = $row["titulo"];
                                 $id = $row["id"];
-                                echo "<option value='$id'>" . $titulo . "</option>";
+                                echo "<option value=" . $id . ">" . $titulo . "</option>";
                             }
                             echo "</select required>";
                         }
