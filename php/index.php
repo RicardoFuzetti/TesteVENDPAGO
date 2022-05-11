@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Locadora Ricardo Fuzetti</title>
 </head>
 
@@ -24,6 +22,7 @@
             <div class="buttons">
                 <button onclick="ModalTitulo.open()">Cadastrar título</button>
                 <button onclick="ModalCliente.open()">Cadastrar cliente</button>
+                <button onclick="ModalEmprestimo.open()">Realizar Empréstimo</button>
                 <button>Agenda</button>
             </div>
 
@@ -42,7 +41,7 @@
             <h2>Cadastrar Cliente</h2>
             <form action="addCliente_exe.php" method="post">
                 <div class="divInputs">
-                    <input id="inputNome" name="nome" type="text" placeholder="Nome" required> 
+                    <input id="inputNome" name="nome" type="text" placeholder="Nome" required>
                 </div>
 
                 <div class="divInputs">
@@ -56,7 +55,6 @@
             </form>
         </div>
     </div>
-    
 
     <div class="modal-overlay-titulo">
 
@@ -69,11 +67,11 @@
             <h2>Cadastrar título</h2>
             <form action="addTitulo_exe.php" method="post">
                 <div class="divInputs">
-                    <input id="inputTitulo" name="titulo" type="text" placeholder="Título">
+                    <input id="inputTitulo" name="titulo" type="text" placeholder="Título" required>
                 </div>
 
                 <div class="divSelect">
-                <label>Selecione o gênero do filme</label>
+                    <label>Selecione o gênero do filme</label>
                     <select name="genero">
                         <option value="Ação">Ação</option>
                         <option value="Aventura">Aventura</option>
@@ -87,6 +85,72 @@
                 <div class="divButtonModal">
                     <button class="bCancelar" onclick="ModalTitulo.close()">Cancelar</button>
                     <button class="bCadastrar" onclick="ModalTitulo.validarCampo()">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay-emprestimo">
+
+        <div class="modal-erro-emprestimo">
+            <p>Preencha todos os campos!</p>
+        </div>
+
+        <div class="modal">
+
+            <h2>Realizar empréstimo</h2>
+            <form action="addEmprestimo_exe.php" method="post">
+
+                <div class="divSelect">
+                    <label>Selecione o cliente</label>
+
+                    <?php
+                    require 'conectaBD.php';
+
+                    // Faz Select na Base de Dados
+                    $cliente = "SELECT cpf, nome FROM Cliente";
+                    $filme = "SELECT id, titulo FROM Video";
+
+                    if ($result = mysqli_query($conn, $cliente)) {
+                        $total = mysqli_num_rows($result);
+                        if ($total === 0) {
+                            echo '<h3>Não há nenhum cliente cadastrado</h3>';
+                        } else {
+                            echo "<select name='cliente'>";
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $nome = $row["nome"];
+                                $cpf = $row["cpf"];
+                                echo "<option value='$cpf'>" . $nome . "</option>";
+                            }
+                            echo "</select required>";
+                        }
+                    }
+
+                    if ($result = mysqli_query($conn, $filme)) {
+                        $total = mysqli_num_rows($result);
+                        if ($total === 0) {
+                            echo '<h3>Não há nenhum cliente cadastrado</h3>';
+                        } else {
+                            echo "<select name='cliente'>";
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $titulo = $row["titulo"];
+                                $id = $row["id"];
+                                echo "<option value='$id'>" . $titulo . "</option>";
+                            }
+                            echo "</select required>";
+                        }
+                    }
+                    ?>
+
+                </div>
+
+                <div class="divInputs">
+                    <input id="inputData" name="data" type="date" placeholder="Título" required>
+                </div>
+
+                <div class="divButtonModal">
+                    <button class="bCancelar" onclick="ModalEmprestimo.close()">Cancelar</button>
+                    <button class="bCadastrar" onclick="ModalEmprestimo.validarCampo()">Emprestar</button>
                 </div>
             </form>
         </div>

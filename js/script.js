@@ -10,18 +10,16 @@ const ModalTitulo = {
     },
 
     titulo: document.getElementById('inputTitulo'),
-    genero: document.getElementById('inputGenero'),
 
     getValues() {
         return {
             titulo: ModalTitulo.titulo.value,
-            genero: ModalTitulo.genero.value
         }
     },
 
     validarCampo() {
-        const { titulo, genero } = ModalTitulo.getValues()
-        if (titulo.trim() === "" || genero.trim() === "") {
+        const { titulo } = ModalTitulo.getValues()
+        if (titulo.trim() === "") {
             document.querySelector('.modal-erro-titulo').classList.add('ativo')
         } else {
             console.log("CAMPOS PREENCHIDOS")
@@ -29,10 +27,9 @@ const ModalTitulo = {
     },
 
     limparCampo() {
-        const { titulo, genero } = ModalTitulo.getValues()
-        if (titulo.trim() !== "" || genero.trim() !== "") {
+        const { titulo } = ModalTitulo.getValues()
+        if (titulo.trim() !== "") {
             ModalTitulo.titulo.value = ""
-            ModalTitulo.genero.value = ""
         } else {
             console.log("CAMPOS VAZIOS")
         }
@@ -74,6 +71,44 @@ const ModalCliente = {
         if (nome.trim() !== "" || cpf.trim() !== "") {
             ModalCliente.nome.value = ""
             ModalCliente.cpf.value = ""
+        } else {
+            console.log("CAMPOS VAZIOS")
+        }
+    }
+}
+
+const ModalEmprestimo = {
+    open() {
+        document.querySelector('.modal-overlay-emprestimo').classList.add('ativo')
+    },
+
+    close() {
+        document.querySelector('.modal-overlay-emprestimo').classList.remove('ativo')
+        document.querySelector('.modal-erro-emprestimo').classList.remove('ativo')
+        ModalEmprestimo.limparCampo()
+    },
+
+    data: document.getElementById('inputData'),
+
+    getValues() {
+        return {
+            data: ModalEmprestimo.data.value,
+        }
+    },
+
+    validarCampo() {
+        const { data } = ModalEmprestimo.getValues()
+        if (data === "") {
+            document.querySelector('.modal-erro-emprestimo').classList.add('ativo')
+        } else {
+            console.log("CAMPOS PREENCHIDOS")
+        }
+    },
+
+    limparCampo() {
+        const { data } = ModalEmprestimo.getValues()
+        if (data !== "") {
+            ModalEmprestimo.data.value = ""
         } else {
             console.log("CAMPOS VAZIOS")
         }

@@ -3,20 +3,22 @@
     require 'conectaBD.php';
 
     // Acesso ao BD
-    $titulo = $_POST['titulo'];
-    $genero = $_POST['genero'];
+    $cpf = $_POST['cliente'];
+    $data = $_POST['data'];
 
 
     // Faz Select na Base de Dados
-    $sql = "INSERT INTO Video (titulo, genero) VALUES ('$titulo','$genero')";
+    $sql = "INSERT INTO Locacao (cpf, id_video, data) VALUES ('$nome','$cpf', '$data')";
 
     if ($result = mysqli_query($conn, $sql)) {
         echo "<script language='JavaScript'>
-        alert('Titulo cadastrado com sucesso!');
+        alert('Locação realizada com sucesso!');
         window.location = '/vendpago/php/index.php';
         </script>";
     } else {
-        echo "Erro executando INSERT do titulo " . mysqli_error($conn);
+        echo "Erro executando INSERT do cliente " . mysqli_error($conn);
     }
 
     mysqli_close($conn);  //Encerra conexao com o BD
+
+?>
