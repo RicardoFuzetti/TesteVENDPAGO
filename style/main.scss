@@ -1,0 +1,200 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box {
+        width: 400px;
+        height: 500px;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 1em #000000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 50px;
+        color: #cccccc;
+    }
+
+    span {
+        font-size: 20px;
+        color: #bebebe;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+
+
+        button {
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            width: 250px;
+            padding: 15px 0 15px 0;
+            margin-bottom: 15px;
+            background: #bebebe;
+            font-family: 'Poppins', sans-serif;
+
+            &:hover {
+                border-bottom: 8px solid #630ba7;
+                transition: border-bottom .2s;
+            }
+        }
+    }
+}
+
+/* Modal Cadastrar Título ========================== */
+.modal-overlay-titulo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.modal-overlay-titulo.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-erro-titulo {
+    position: absolute;
+    top: 3%;
+    width: 600px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ff0000;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-erro-titulo.ativo {
+    opacity: 1;
+    visibility: visible;
+    transition: .3s;
+}
+
+/* Modal Cadastrar Cliente ========================== */
+.modal-overlay-cliente {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.modal-overlay-cliente.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-erro-cliente {
+    position: absolute;
+    top: 3%;
+    width: 600px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ff0000;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-erro-cliente.ativo {
+    opacity: 1;
+    visibility: visible;
+    transition: .3s;
+}
+
+.modal {
+    width: 500px;
+    background: #ebebeb;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #0000008c;
+
+    input {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 14px;
+        width: 100%;
+        font-size: 17.5px;
+
+        &:focus {
+            border-bottom: 2px solid #000000;
+        }
+    }
+
+    .erro {
+        border: 2px solid #ff0000;
+    }
+
+    .divInputs {
+        margin-top: 12px;
+    }
+
+    .divButtonModal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        width: 100%;
+
+        button {
+            width: 48%;
+            height: 50px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 17.5px;
+        }
+    }
+
+    .bCancelar {
+        background: #e92929;
+        opacity: 0.6;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .bCadastrar {
+        background: #49AA26;
+
+        &:hover {
+            background: #3dd705;
+        }
+    }
+}

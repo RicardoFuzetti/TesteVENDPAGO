@@ -1,0 +1,250 @@
+@charset "UTF-8";
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .box {
+  width: 400px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1em #000000;
+          box-shadow: 0 0 1em #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+}
+
+.container h1 {
+  font-size: 50px;
+  color: #cccccc;
+}
+
+.container span {
+  font-size: 20px;
+  color: #bebebe;
+}
+
+.container .buttons {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .buttons button {
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 250px;
+  padding: 15px 0 15px 0;
+  margin-bottom: 15px;
+  background: #bebebe;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container .buttons button:hover {
+  border-bottom: 8px solid #630ba7;
+  -webkit-transition: border-bottom .2s;
+  transition: border-bottom .2s;
+}
+
+/* Modal Cadastrar Título ========================== */
+.modal-overlay-titulo {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay-titulo.ativo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-erro-titulo {
+  position: absolute;
+  top: 3%;
+  width: 600px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ff0000;
+  font-weight: bold;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-erro-titulo.ativo {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+/* Modal Cadastrar Cliente ========================== */
+.modal-overlay-cliente {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay-cliente.ativo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-erro-cliente {
+  position: absolute;
+  top: 3%;
+  width: 600px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ff0000;
+  font-weight: bold;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-erro-cliente.ativo {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.modal {
+  width: 500px;
+  background: #ebebeb;
+  padding: 40px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 1em #0000008c;
+          box-shadow: 0 0 1em #0000008c;
+}
+
+.modal input {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 14px;
+  width: 100%;
+  font-size: 17.5px;
+}
+
+.modal input:focus {
+  border-bottom: 2px solid #000000;
+}
+
+.modal .erro {
+  border: 2px solid #ff0000;
+}
+
+.modal .divInputs {
+  margin-top: 12px;
+}
+
+.modal .divButtonModal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.modal .divButtonModal button {
+  width: 48%;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 17.5px;
+}
+
+.modal .bCancelar {
+  background: #e92929;
+  opacity: 0.6;
+}
+
+.modal .bCancelar:hover {
+  opacity: 1;
+}
+
+.modal .bCadastrar {
+  background: #49AA26;
+}
+
+.modal .bCadastrar:hover {
+  background: #3dd705;
+}
+/*# sourceMappingURL=main.css.map */
