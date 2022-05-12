@@ -40,8 +40,8 @@
                     echo "<th width='10%'>Data de Retirada</th>";
                     echo "<th width='10%'>Data de Entrega</th>";
                     echo "<th width='1%'></th>";
+                    echo "<th width='1%'></th>";
                     echo "</tr>";
-
 
                     while ($rowLocacao = mysqli_fetch_assoc($resultLocacao)) {
                         echo "<tr class='border'>";
@@ -80,12 +80,16 @@
                         }
                         echo "<th>$dataRetirada</th>";
                         echo "<th>$dataEntrega</th>";
-                        echo "<th> <button>Devolver</button> </th>";
+
+                        $hoje = date('d/m/Y');
+                        if ($hoje > $dataEntrega) {
+                            echo "<th> <button disabled class='multa'>MULTA</button> </th>";
+                        }
+
+                        echo "<th> <button class='devolver'>Devolver</button> </th>";
                     }
                 }
             }
-
-
 
             echo "</tr>";
             ?>

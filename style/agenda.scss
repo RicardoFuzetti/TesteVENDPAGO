@@ -60,15 +60,19 @@ body {
                 button {
                     width: 100px;
                     height: 50px;
-                    cursor: pointer;
+                    cursor: default;
                     outline: none;
                     border: none;
                     border-radius: 7px;
-                    background-color: #58099570;
+                    background-color: red;
                     color: #fff;
                     font-size: 17.5px;
+                }
 
+                .devolver {
+                    background-color: #58099570;
                     transition: background-color .3s;
+                    cursor: pointer;
 
                     &:hover {
                         background-color: #590995;

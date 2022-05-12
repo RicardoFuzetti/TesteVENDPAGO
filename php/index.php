@@ -23,7 +23,7 @@
                 <button onclick="ModalCliente.open()">Cadastrar cliente</button>
                 <button onclick="ModalTitulo.open()">Cadastrar título</button>
                 <button onclick="ModalEmprestimo.open()">Realizar Empréstimo</button>
-                <button>Agenda</button>
+                <button onclick="window.location.href='agenda.php'">Agenda</button>
             </div>
 
         </div>
@@ -140,13 +140,19 @@
                             echo "</select required>";
                         }
                     }
+
+                    $hoje = date('Y/m/d');
+                    // $entrega = date('Y/m/d', strtotime("+7 days", strtotime($hoje)));
+                    $hojeUsuario = date('d/m/Y');
                     ?>
 
                 </div>
 
                 <div class="divInputs">
-                    <label>Seleicone a data de retirada:</label>
-                    <input id="inputData" name="dataRetirada" type="date" required>
+
+                    <label>Data de retirada: <?php echo $hojeUsuario ?></label><br>
+                    <?php echo "<input id='inputData' name='dataRetirada' type='hidden' value=' $hoje '>" ?>
+
 
                     <label>Seleicone a data de entrega:</label>
                     <input id="inputData" name="dataEntrega" type="date" required>
