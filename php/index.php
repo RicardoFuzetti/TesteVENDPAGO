@@ -10,18 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Locadora Ricardo Fuzetti</title>
+    <title>Ricardo Fuzetti</title>
 </head>
 
 <body>
     <main class="container">
         <div class="box">
-            <h1>Bem Vindo!</h1>
+            <h1>Locadora</h1>
             <span>Selecione o que deseja</span>
 
             <div class="buttons">
-                <button onclick="ModalTitulo.open()">Cadastrar título</button>
                 <button onclick="ModalCliente.open()">Cadastrar cliente</button>
+                <button onclick="ModalTitulo.open()">Cadastrar título</button>
                 <button onclick="ModalEmprestimo.open()">Realizar Empréstimo</button>
                 <button>Agenda</button>
             </div>
@@ -102,20 +102,19 @@
             <form action="addEmprestimo_exe.php" method="post">
 
                 <div class="divSelect">
-                    <label>Selecione o cliente</label>
-
                     <?php
                     require 'conectaBD.php';
 
                     // Faz Select na Base de Dados
-                    $cliente = "SELECT cpf, nome FROM Cliente";
-                    $filme = "SELECT id, titulo FROM Video";
+                    $cliente = "SELECT cpf, nome FROM Cliente ORDER BY nome";
+                    $filme = "SELECT id, titulo FROM Video ORDER BY titulo";
 
                     if ($result = mysqli_query($conn, $cliente)) {
                         $total = mysqli_num_rows($result);
                         if ($total === 0) {
-                            echo '<h3>Não há nenhum cliente cadastrado</h3>';
+                            echo '<span>Não há nenhum cliente cadastrado!</span>';
                         } else {
+                            echo "<label>Selecione o cliente:</label>";
                             echo "<select name='cliente'>";
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $nome = $row["nome"];
@@ -129,8 +128,9 @@
                     if ($result = mysqli_query($conn, $filme)) {
                         $total = mysqli_num_rows($result);
                         if ($total === 0) {
-                            echo '<h3>Não há nenhum cliente cadastrado</h3>';
+                            echo '<span>Não há nenhum filme cadastrado!</span>';
                         } else {
+                            echo "<label>Selecione o filme:</label>";
                             echo "<select name='filme'>";
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $titulo = $row["titulo"];
@@ -145,7 +145,11 @@
                 </div>
 
                 <div class="divInputs">
-                    <input id="inputData" name="data" type="date" placeholder="Título" required>
+                    <label>Seleicone a data de retirada:</label>
+                    <input id="inputData" name="dataRetirada" type="date" required>
+
+                    <label>Seleicone a data de entrega:</label>
+                    <input id="inputData" name="dataEntrega" type="date" required>
                 </div>
 
                 <div class="divButtonModal">

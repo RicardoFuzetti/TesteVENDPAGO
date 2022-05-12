@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #eeeeee;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 30px 0 30px;
+  width: 100%;
+  height: 70px;
+  background-image: linear-gradient(40deg, #150485, #590995, #c62a88);
+  color: #cccccc;
+}
+
+body header a {
+  text-decoration: none;
+  color: #cccccc;
+  font-size: 17.5px;
+}
+
+body .centro {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0 0 0;
+}
+
+body .centro h3 {
+  font-size: 25px;
+}
+
+body table {
+  border-collapse: collapse;
+}
+
+body table tr:not(:first-child):hover {
+  background-color: #e0e0e0;
+}
+
+body table tr.border th:first-child {
+  border-radius: 2px;
+  border-left: 5px solid #590995;
+}
+
+body table tr.border th {
+  padding: 10px 10px 10px 0;
+}
+
+body table tr.border th button {
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  background-color: #58099570;
+  color: #fff;
+  font-size: 17.5px;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+body table tr.border th button:hover {
+  background-color: #590995;
+}
+/*# sourceMappingURL=agenda.css.map */

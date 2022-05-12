@@ -5,11 +5,12 @@ require 'conectaBD.php';
 // Acesso ao BD
 $cpf = $_POST['cliente'];
 $id = $_POST['filme'];
-$data = $_POST['data'];
+$dataRetirada = $_POST['dataRetirada'];
+$dataEntrega = $_POST['dataEntrega'];
 
 
-// Faz Select na Base de Dados
-$sql = "INSERT INTO Locacao (cpf, id_video, data) VALUES ('$cpf','$id', '$data')";
+// Faz insert na Base de Dados
+$sql = "INSERT INTO Locacao (cpf, id_video, dataretirada, dataentrega) VALUES ('$cpf','$id', '$dataRetirada', '$dataEntrega')";
 
 if ($result = mysqli_query($conn, $sql)) {
     echo "<script language='JavaScript'>
